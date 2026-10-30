@@ -23,7 +23,7 @@ jobs:
         run: sudo timedatectl set-timezone "Asia/Shanghai"
 
       - name: 检出本仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 启用文件权限位比对（mode 也随上游同步）
         run: git config core.fileMode true
@@ -108,7 +108,7 @@ jobs:
 
       - name: 创建/更新 Pull Request
         if: steps.summary.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: lede
